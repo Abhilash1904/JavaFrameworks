@@ -1,0 +1,1 @@
+insert into Course values(100l, 'Maths');
