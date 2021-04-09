@@ -27,6 +27,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
+	@Transactional
 	public void saveEmpl(Employee employee) {
 		eDAO.saveEmpl(employee);
 
