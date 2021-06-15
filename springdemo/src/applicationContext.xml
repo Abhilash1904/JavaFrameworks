@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- configure properties file
+	<bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+		  <property name="location">
+			  <list>
+			  <value>classpath:foo.properties</value>
+			  </list>
+		  </property>
+		  <property name="email" value="true"/>
+		  <property name="teamname" value="true"/>
+	</bean>  -->
+
+    <!-- bean definitions here -->
+    <bean
+    	id="dailyFortune"
+    	class="springdemoFitnessApp.FortuneTeller"
+    />
+    
+     <bean
+    	id="mycoach"
+    	class="springdemoFitnessApp.TennisCoach">
+    	<constructor-arg ref="dailyFortune"/>
+    	</bean>
+    	
+    <bean
+    	id="mycriccoach"
+    	class="springdemoFitnessApp.CricketCoach">
+    	<property name="fortuneteller" ref="dailyFortune"/>
+    	<property name="email" value="${email}"/>
+    	<property name="teamname" value="${teamname}"/>
+    	</bean>
+    	
+
+</beans>
